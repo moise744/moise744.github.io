@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habimana Moise - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #2c2c2c;
+            background: white;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            border: 3px solid #1a365d;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            padding: 25px;
+            border-bottom: 3px solid #1a365d;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+        }
+        
+        .name {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: #1a365d;
+            letter-spacing: 1px;
+        }
+        
+        .contact-info {
+            font-size: 12px;
+            line-height: 1.4;
+            color: #4a5568;
+        }
+        
+        .main-content {
+            display: flex;
+            min-height: 700px;
+        }
+        
+        .left-column {
+            flex: 2.2;
+            padding: 25px;
+            border-right: 3px solid #1a365d;
+        }
+        
+        .right-column {
+            flex: 1;
+            padding: 25px;
+            background: linear-gradient(180deg, #f7fafc 0%, #edf2f7 100%);
+        }
+        
+        .section {
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #1a365d;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3182ce;
+            padding-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .job-header {
+            margin-bottom: 8px;
+        }
+        
+        .job-title {
+            font-weight: bold;
+            color: #1a365d;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        
+        .company {
+            font-style: italic;
+            color: #3182ce;
+            font-size: 12px;
+            margin-bottom: 6px;
+        }
+        
+        .date {
+            float: right;
+            font-weight: bold;
+            color: #4a5568;
+            font-size: 12px;
+            background: #e2e8f0;
+            padding: 2px 8px;
+            border-radius: 3px;
+        }
+        
+        .job-details {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .job-details li {
+            margin-bottom: 6px;
+            list-style-type: disc;
+            color: #4a5568;
+        }
+        
+        .education-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: white;
+            border-left: 3px solid #3182ce;
+        }
+        
+        .degree {
+            font-weight: bold;
+            font-size: 13px;
+            color: #1a365d;
+            margin-bottom: 3px;
+        }
+        
+        .school {
+            font-style: italic;
+            color: #3182ce;
+            font-size: 12px;
+        }
+        
+        .right-section {
+            margin-bottom: 20px;
+        }
+        
+        .right-section-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #1a365d;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #3182ce;
+            padding-bottom: 3px;
+        }
+        
+        .skill-category {
+            font-weight: bold;
+            color: #1a365d;
+            font-size: 12px;
+            margin-top: 12px;
+            margin-bottom: 6px;
+        }
+        
+        .skill-list {
+            margin-left: 18px;
+            font-size: 11px;
+        }
+        
+        .skill-list li {
+            margin-bottom: 4px;
+            list-style-type: circle;
+            color: #4a5568;
+        }
+        
+        .profile-text {
+            text-align: justify;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #4a5568;
+        }
+        
+        .achievement-item {
+            background: white;
+            padding: 8px;
+            margin-bottom: 6px;
+            border-radius: 4px;
+            font-size: 11px;
+            color: #4a5568;
+        }
+        
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        
+        .highlight {
+            color: #3182ce;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="name">Habimana Moise</div>
+            <div class="contact-info">
+                Kigali, Rwanda<br>
+                habmose1@gmail.com | +250787564871<br>
+                https://github.com/moise744
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="left-column">
+                <div class="section">
+                    <div class="section-title">Professional Summary</div>
+                    <div class="profile-text">
+                        Dedicated Python Developer with hands-on experience building machine learning applications and backend systems. Strong background in developing APIs, working with databases, and implementing AI solutions for real-world problems. Experienced with modern development practices including version control, testing, and deployment. Passionate about creating efficient, scalable applications that solve complex business challenges.
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">Professional Experience</div>
+                    
+                    <div class="clearfix">
+                        <div class="job-title">Python Developer & Machine Learning Engineer</div>
+                        <div class="date">January 2024 - September 2025</div>
+                    </div>
+                    <div class="company">Financial Markets Analysis Project</div>
+                    <ul class="job-details">
+                        <li>Built complete machine learning pipeline using Python to analyze financial market data and predict price movements.</li>
+                        <li>Developed RESTful APIs using FastAPI for real-time data processing and model predictions.</li>
+                        <li>Created automated web scraping systems with Selenium and BeautifulSoup to collect market data from multiple sources.</li>
+                        <li>Implemented Django backend services with database integration for content management and user interactions.</li>
+                        <li>Applied advanced statistical methods including ARIMA time series models for market forecasting.</li>
+                        <li>Used Git version control for code management and collaboration throughout project lifecycle.</li>
+                    </ul>
+                    
+                    <div class="clearfix">
+                        <div class="job-title">AWS Machine Learning Developer</div>
+                        <div class="date">May 2025 - September 2025</div>
+                    </div>
+                    <div class="company">Udacity AI & ML Scholarship Program</div>
+                    <ul class="job-details">
+                        <li>Completed comprehensive training in AWS cloud services and machine learning deployment strategies</li>
+                        <li>Built end-to-end ML workflows using AWS SageMaker for model training, validation, and production deployment.</li>
+                        <li>Developed automated data processing pipelines with proper error handling and monitoring.</li>
+                        <li>Delivered capstone project showcasing best practices for cloud-based AI application development.</li>
+                    </ul>
+                    
+                    <div class="clearfix">
+                        <div class="job-title">AI Competition Participant</div>
+                        <div class="date">2024</div>
+                    </div>
+                    <div class="company">AWS DeepRacer Student League</div>
+                    <ul class="job-details">
+                        <li>Developed reinforcement learning algorithms for autonomous vehicle control and optimization.</li>
+                        <li>Achieved top 10% ranking nationally through systematic algorithm improvement and testing.</li>
+                        <li>Applied machine learning concepts to solve real-time decision making challenges.</li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">Key Projects</div>
+                    
+                    <div class="job-title">Intelligent Financial Data Platform</div>
+                    <ul class="job-details">
+                        <li>Built full-stack application combining Django backend with machine learning models for market analysis.</li>
+                        <li>Implemented REST API endpoints for data retrieval, user authentication, and model predictions.</li>
+                        <li>Designed database schema and integrated multiple data sources using SQL and Python.</li>
+                        <li>Deployed application with proper error handling, logging, and performance monitoring.</li>
+                    </ul>
+                    
+                    <div class="job-title">Real-Time Data Processing System</div>
+                    <ul class="job-details">
+                        <li>Created automated data collection system using Python and web scraping techniques.</li>
+                        <li>Built FastAPI microservices for handling concurrent requests and data processing.</li>
+                        <li>Implemented proper version control workflows using Git for team collaboration.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="right-column">
+                <div class="right-section">
+                    <div class="right-section-title">Core Technical Skills</div>
+                    
+                    <div class="skill-category">Python Development:</div>
+                    <ul class="skill-list">
+                        <li>Object-Oriented Programming</li>
+                        <li>Functions & Data Structures</li>
+                        <li>NumPy & Pandas</li>
+                        <li>Error Handling & Testing</li>
+                    </ul>
+                    
+                    <div class="skill-category">Backend & APIs:</div>
+                    <ul class="skill-list">
+                        <li>FastAPI Development</li>
+                        <li>Django Framework</li>
+                        <li>RESTful API Design</li>
+                        <li>Database Integration</li>
+                    </ul>
+                    
+                    <div class="skill-category">AI & Machine Learning:</div>
+                    <ul class="skill-list">
+                        <li>Scikit-learn</li>
+                        <li>Machine Learning Pipelines</li>
+                        <li>Statistical Modeling</li>
+                        <li>Time Series Analysis</li>
+                        <li>Reinforcement Learning</li>
+                    </ul>
+                    
+                    <div class="skill-category">Development Tools:</div>
+                    <ul class="skill-list">
+                        <li>Git Version Control</li>
+                        <li>GitHub Collaboration</li>
+                        <li>Code Documentation</li>
+                        <li>Debugging & Testing</li>
+                    </ul>
+                    
+                    <div class="skill-category">Data & Databases:</div>
+                    <ul class="skill-list">
+                        <li>SQL Queries & Design</li>
+                        <li>Data Processing</li>
+                        <li>Web Scraping</li>
+                        <li>Data Analysis</li>
+                    </ul>
+                    
+                    <div class="skill-category">Cloud & Deployment:</div>
+                    <ul class="skill-list">
+                        <li>AWS Services</li>
+                        <li>Model Deployment</li>
+                        <li>Cloud Infrastructure</li>
+                    </ul>
+                </div>
+                
+                <div class="right-section">
+                    <div class="right-section-title">Key Achievements</div>
+                    <div class="achievement-item">
+                        <strong>Top 10% National Ranking</strong><br>
+                        AWS DeepRacer ML Competition
+                    </div>
+                    <div class="achievement-item">
+                        <strong>Scholarship Recipient</strong><br>
+                        Udacity AI & ML Program
+                    </div>
+                    <div class="achievement-item">
+                        <strong>Production Deployment</strong><br>
+                        Successfully deployed ML models to production
+                    </div>
+                 
+                </div>
+                
+                <div class="right-section">
+                    <div class="right-section-title">Languages</div>
+                    <ul class="skill-list">
+                        <li><strong>English:</strong> Professional proficiency</li>
+                       
+                        <li><strong>Kinyarwanda:</strong> Native speaker</li>
+                    </ul>
+                </div>
+                
+                <div class="right-section">
+                    <div class="right-section-title">Education</div>
+                    
+                    <div class="education-item">
+                        <div class="degree">Bachelor of Science</div>
+                        <div class="school">Computer and Software Engineering</div>
+                        <div class="date" style="float: none; background: none; padding: 0;">2021-2025</div>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="degree">AWS ML Foundations Nanodegree</div>
+                        <div class="school">Udacity (Scholarship Recipient)</div>
+                        <div class="date" style="float: none; background: none; padding: 0;">2025</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habimana Moise - Python Developer & ML Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #64ffda;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #64ffda;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #64ffda;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="g"><stop offset="20%" stop-color="%2364ffda" stop-opacity="0.1"/><stop offset="80%" stop-color="%2364ffda" stop-opacity="0"/></radialGradient></defs><rect width="100%" height="100%" fill="url(%23g)"/></svg>');
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #64ffda, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #94a3b8;
+            min-height: 2rem;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            color: #cbd5e1;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #64ffda, #06b6d4);
+            color: #0f172a;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(100, 255, 218, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #64ffda;
+            border: 2px solid #64ffda;
+        }
+
+        .btn-secondary:hover {
+            background: #64ffda;
+            color: #0f172a;
+            transform: translateY(-2px);
+        }
+
+        .btn-download {
+            background: linear-gradient(45deg, #f59e0b, #f97316);
+            color: white;
+        }
+
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1e293b;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #64ffda, #06b6d4);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            background: #f8fafc;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .profile-pic {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #64ffda, #06b6d4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #0f172a;
+            font-weight: bold;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.3);
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            color: #1e293b;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(45deg, #64ffda, #06b6d4);
+            color: #0f172a;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Achievements Section */
+        .achievements {
+            background: #f8fafc;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .achievement-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            border-top: 4px solid #64ffda;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .achievement-badge-img {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #64ffda, #06b6d4);
+            box-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
+        }
+
+        .badge-placeholder {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #0f172a;
+            font-weight: bold;
+        }
+
+        .achievement-content h3 {
+            color: #1e293b;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .achievement-date {
+            color: #64ffda;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .achievement-content p {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .achievement-label {
+            display: inline-block;
+            background: linear-gradient(45deg, #64ffda, #06b6d4);
+            color: #0f172a;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Documents Section */
+        .documents {
+            background: white;
+        }
+
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .document-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .document-card:hover {
+            border-color: #64ffda;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(100, 255, 218, 0.1);
+        }
+
+        .document-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: linear-gradient(45deg, #64ffda, #06b6d4);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .document-title {
+            color: #1e293b;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .document-description {
+            color: #64748b;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: white;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: #f8fafc;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: #64ffda;
+        }
+
+        .project-header {
+            background: linear-gradient(45deg, #1e293b, #334155);
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-subtitle {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-description {
+            color: #64748b;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background: #e2e8f0;
+            color: #475569;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            color: #64ffda;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: #06b6d4;
+        }
+
+        /* Experience Timeline */
+        .experience {
+            background: #f8fafc;
+        }
+
+        .timeline {
+            position: relative;
+            margin-top: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #64ffda, #06b6d4);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 80px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 18px;
+            top: 0;
+            width: 24px;
+            height: 24px;
+            background: #64ffda;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px #64ffda;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #64ffda;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-company {
+            color: #64ffda;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-date {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-description {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-3px);
+        }
+
+        .contact-item h3 {
+            color: #64ffda;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #64ffda;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(15, 23, 42, 0.98);
+                padding: 1rem 2rem;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .timeline::before {
+                left: 15px;
+            }
+
+            .timeline-item {
+                padding-left: 50px;
+            }
+
+            .timeline-dot {
+                left: 3px;
+            }
+
+            .section {
+                padding: 60px 0;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+
+        /* Particle animation */
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #64ffda;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particleFloat 4s linear infinite;
+        }
+
+        /* File upload instructions */
+        .upload-instructions {
+            background: linear-gradient(45deg, #fef3c7, #fde68a);
+            border: 2px dashed #f59e0b;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .upload-instructions h3 {
+            color: #92400e;
+            margin-bottom: 1rem;
+        }
+
+        .upload-instructions p {
+            color: #78350f;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">HM</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#documents">Documents</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="fade-in">Habimana Moise</h1>
+            <p class="subtitle fade-in stagger-1">Python Developer & ML Engineer</p>
+            <p class="description fade-in stagger-2">
+                AWS DeepRacer Champion with top 10% national ranking. Passionate about building intelligent applications that solve real-world problems. Specializing in Python backend development, machine learning, and AI-powered solutions.
+            </p>
+            <div class="cta-buttons fade-in stagger-3">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#achievements" class="btn btn-secondary">See Achievements</a>
+                <a href="#documents" class="btn btn-download">Download CV</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <div class="profile-pic">HM</div>
+            </div>
+            <div class="about-text">
+                <p>I'm a Computer and Software Engineering student at the University of Rwanda with a strong passion for Python development and machine learning. My journey in tech has been marked by continuous learning and practical application of cutting-edge technologies.</p>
+                
+                <p>With hands-on experience in building machine learning systems, web APIs, and data analysis platforms, I specialize in creating intelligent applications that bridge the gap between complex algorithms and real-world business solutions.</p>
+                
+                <p>My competitive achievements include earning top 10% ranking in AWS DeepRacer competitions, securing 2nd and 3rd place medals in national competitions, completing AWS Machine Learning Foundations through a competitive scholarship, and developing sophisticated financial market analysis systems using Python, FastAPI, and Django.</p>
+                
+                <p>I'm actively seeking opportunities to grow my skills in an international environment and contribute to innovative projects that make a meaningful impact. My goal is to leverage my AWS expertise and competitive programming background to solve complex real-world challenges.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category fade-in stagger-1">
+                <h3>Programming Languages</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">HTML/CSS</span>
+                    <span class="skill-tag">C++</span>
+                </div>
+            </div>
+            
+            <div class="skill-category fade-in stagger-2">
+                <h3>Python Frameworks</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Django</span>
+                    <span class="skill-tag">FastAPI</span>
+                    <span class="skill-tag">Flask</span>
+                    <span class="skill-tag">Pandas</span>
+                    <span class="skill-tag">NumPy</span>
+                </div>
+            </div>
+            
+            <div class="skill-category fade-in stagger-3">
+                <h3>Machine Learning & AI</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Scikit-learn</span>
+                    <span class="skill-tag">AutoGluon</span>
+                    <span class="skill-tag">Reinforcement Learning</span>
+                    <span class="skill-tag">Statistical Modeling</span>
+                    <span class="skill-tag">ARIMA</span>
+                    <span class="skill-tag">Time Series</span>
+                </div>
+            </div>
+            
+            <div class="skill-category fade-in stagger-4">
+                <h3>Cloud & Data Tools</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">AWS SageMaker</span>
+                    <span class="skill-tag">AWS DeepRacer</span>
+                    <span class="skill-tag">Selenium</span>
+                    <span class="skill-tag">BeautifulSoup</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">API Development</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card fade-in stagger-1">
+                <div class="project-header">
+                    <div class="project-title">Financial Markets ML System</div>
+                    <div class="project-subtitle">AI-Powered Economic Analysis Platform</div>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">
+                        Comprehensive machine learning system that analyzes how economic and fundamental factors influence financial market price movements. Built end-to-end solution from data collection to model deployment with real-time analysis capabilities.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">Selenium</span>
+                        <span class="tech-tag">ARIMA</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/moise744" class="project-link">View Code →</a>
+                        <a href="#" class="project-link">Live Demo →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in stagger-2">
+                <div class="project-header">
+                    <div class="project-title">AWS ML Workflow Pipeline</div>
+                    <div class="project-subtitle">Cloud-Based Machine Learning</div>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">
+                        End-to-end machine learning workflow built using AWS ecosystem. Includes data wrangling, model training, performance evaluation, and deployment using AWS SageMaker and related cloud services.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">AWS SageMaker</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Data Engineering</span>
+                        <span class="tech-tag">Model Deployment</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/moise744" class="project-link">View Code →</a>
+                        <a href="#" class="project-link">Documentation →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in stagger-3">
+                <div class="project-header">
+                    <div class="project-title">Reinforcement Learning Racer</div>
+                    <div class="project-subtitle">AWS DeepRacer Championship Model</div>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">
+                        Award-winning reinforcement learning model developed for AWS DeepRacer competitions. Achieved multiple top rankings including 2nd place nationally through advanced reward function optimization and hyperparameter tuning.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Reinforcement Learning</span>
+                        <span class="tech-tag">AWS DeepRacer</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Neural Networks</span>
+                        <span class="tech-tag">Model Optimization</span>
+                    </div>
+                    <div class="project-links">
+                        
+                        <a href="#achievements" class="project-link">See Awards →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in stagger-4">
+                <div class="project-header">
+                    <div class="project-title">Web Scraping & Data Pipeline</div>
+                    <div class="project-subtitle">Automated Data Collection System</div>
+                </div>
+                <div class="project-content">
+                    <p class="project-description">
+                        Advanced web scraping solution using Selenium and BeautifulSoup to collect, clean, and process financial data for machine learning model training and real-time market analysis.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Selenium</span>
+                        <span class="tech-tag">BeautifulSoup</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Data Cleaning</span>
+                        <span class="tech-tag">ETL Pipeline</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/moise744" class="project-link">View Code →</a>
+                        <a href="#" class="project-link">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="section achievements">
+        <h2 class="section-title">AWS DeepRacer Achievements</h2>
+        <div class="achievements-grid">
+            <div class="achievement-card fade-in stagger-1">
+                <div class="achievement-badge-img">
+                  
+                     <img src="badges/top10.png" alt="Top 10% Badge" style="width: 60px; height: 60px; border-radius: 8px;"> 
+                </div>
+                <div class="achievement-content">
+                    <h3>AWS DeepRacer Top 10%</h3>
+                    <div class="achievement-date">August 2023 • Rwanda</div>
+                    <p>Achieved top 10% ranking in Rwanda during AWS DeepRacer Student League competitions, demonstrating exceptional machine learning and reinforcement learning skills.</p>
+                    <div class="achievement-label">National Recognition</div>
+                </div>
+            </div>
+
+            <div class="achievement-card fade-in stagger-2">
+                <div class="achievement-badge-img">
+                    
+                   <img src="badges/second.png" alt="2nd Place Badge" style="width: 60px; height: 60px; border-radius: 8px;"> 
+                </div>
+                <div class="achievement-content">
+                    <h3>2nd Place - AWS DeepRacer</h3>
+                    <div class="achievement-date">September 2023 • Rwanda</div>
+                    <p>Secured 2nd place in Rwanda's AWS DeepRacer competition, showcasing advanced understanding of autonomous vehicle algorithms and ML optimization strategies.</p>
+                    <div class="achievement-label">Silver Medal</div>
+                </div>
+            </div>
+
+            <div class="achievement-card fade-in stagger-3">
+                <div class="achievement-badge-img">
+                   
+                     <img src="badges/first.png" alt="First Race Badge" style="width: 60px; height: 60px; border-radius: 8px;"> 
+                </div>
+                <div class="achievement-content">
+                    <h3>First Race Badge</h3>
+                    <div class="achievement-date">September 2023</div>
+                    <p>Earned the coveted First Race Badge in AWS DeepRacer, marking the beginning of a successful competitive racing journey in machine learning and AI.</p>
+                    <div class="achievement-label">Milestone Achievement</div>
+                </div>
+            </div>
+
+            <div class="achievement-card fade-in stagger-4">
+                <div class="achievement-badge-img">
+                   
+                    <img src="badges/third.png" alt="3rd Place Badge" style="width: 60px; height: 60px; border-radius: 8px;"> 
+                </div>
+                <div class="achievement-content">
+                    <h3>3rd Place - AWS DeepRacer</h3>
+                    <div class="achievement-date">August 2023 • Rwanda</div>
+                    <p>Achieved 3rd place in Rwanda's AWS DeepRacer Student League, demonstrating consistent high performance in reinforcement learning challenges.</p>
+                    <div class="achievement-label">Bronze Medal</div>
+                </div>
+            </div>
+
+       
+
+            <div class="achievement-card fade-in stagger-2">
+                <div class="achievement-badge-img">
+                    <div class="badge-placeholder">☁️</div>
+                    <!-- Replace with: <img src="badges/aws-cloud-badge.png" alt="AWS Cloud Badge" style="width: 60px; height: 60px; border-radius: 8px;"> -->
+                </div>
+                <div class="achievement-content">
+                    <h3>AWS Cloud Practitioner Track</h3>
+                    <div class="achievement-date">2023 - 2024</div>
+                    <p>Comprehensive training in AWS cloud services, machine learning tools, and best practices for building scalable cloud-native applications.</p>
+                    <div class="achievement-label">Cloud Expertise</div>
+                </div>
+            </div>
+        </div>
+
+      
+    </section>
+
+    <!-- Documents Section -->
+    <section id="documents" class="section documents">
+        <h2 class="section-title">Documents & Certifications</h2>
+        <div class="documents-grid">
+            <div class="document-card fade-in stagger-1">
+                <div class="document-icon">📄</div>
+                <div class="document-title">Resume</div>
+                <p class="document-description">Comprehensive resume highlighting my technical skills, achievements, and professional experience in Python development and machine learning.</p>
+                <a href="badges/Resume.pdf" class="btn btn-download" download>Download CV</a>
+            </div>
+
+            <div class="document-card fade-in stagger-2">
+                <div class="document-icon">🏆</div>
+                <div class="document-title">AWS DeepRacer Certificates</div>
+                <p class="document-description">Official certificates and documentation from AWS DeepRacer competitions showcasing top 10%, 2nd place, and 3rd place achievements.</p>
+                <a href="badges/AWS_DeepRacer_Certificates.pdf" class="btn btn-download" download>Download Certificates</a>
+            </div>
+
+       
+
+        </div>
+
+   
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section experience">
+        <h2 class="section-title">Experience & Background</h2>
+
+
+        <div class="timeline">
+
+                        <div class="timeline-item fade-in stagger-2">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-title">AWS Machine Learning Developer</div>
+                    <div class="timeline-company">Udacity (AWS AI & ML Scholarship)</div>
+                    <div class="timeline-date">May 2025 - September 2025</div>
+                    <div class="timeline-description">
+                        Completed intensive machine learning program through competitive AWS scholarship. Built end-to-end ML workflows, mastered AWS SageMaker for model training and deployment, and developed production-ready machine learning solutions with cloud-native architecture.
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item fade-in stagger-1">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-title">Python Developer & ML Engineer</div>
+                    <div class="timeline-company">Financial Markets Analysis Project</div>
+                    <div class="timeline-date">August 2024 - March 2025</div>
+                    <div class="timeline-description">
+                        Independently designing and developing machine learning systems for financial market analysis. Building scalable Python applications with FastAPI and Django, implementing statistical models, and creating real-time data pipelines for market insights.
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="timeline-item fade-in stagger-3">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-title">AWS DeepRacer Champion</div>
+                    <div class="timeline-company">Amazon Web Services - Rwanda</div>
+                    <div class="timeline-date">August 2023 - October 2023</div>
+                    <div class="timeline-description">
+                        Achieved multiple top rankings in Rwanda's AWS DeepRacer competitions including 2nd place (September 2023), 3rd place (August 2023), and top 10% national performance. Developed sophisticated reinforcement learning algorithms for autonomous racing, earning recognition for consistent excellence in competitive machine learning.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in stagger-4">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-title">Computer & Software Engineering Student</div>
+                    <div class="timeline-company">University of Rwanda</div>
+                    <div class="timeline-date">2022 - 2026</div>
+                    <div class="timeline-description">
+                        Pursuing Bachelor's degree in Computer and Software Engineering with focus on machine learning, data structures, algorithms, and software development. Active in competitive programming, AWS cloud computing initiatives, and developing practical applications for real-world problem solving.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <h2 class="section-title" style="color: white;">Let's Connect</h2>
+        <div class="contact-content">
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #cbd5e1;">
+                Ready to collaborate on exciting projects or discuss opportunities in Python development, machine learning, and AWS cloud solutions. Let's build something amazing together!
+            </p>
+            
+            <div class="contact-info">
+                <div class="contact-item fade-in stagger-1">
+                    <h3>📧 Email</h3>
+                    <a href="mailto:habmose1@gmail.com">habmose1@gmail.com</a>
+                </div>
+                
+                <div class="contact-item fade-in stagger-2">
+                    <h3>📱 Phone</h3>
+                    <a href="tel:+250787564871">+250 787 564 871</a>
+                </div>
+                
+                <div class="contact-item fade-in stagger-3">
+                    <h3>📍 Location</h3>
+                    <p>Kigali, Rwanda</p>
+                </div>
+                
+                <div class="contact-item fade-in stagger-4">
+                    <h3>💻 GitHub</h3>
+                    <a href="https://github.com/moise744" target="_blank">github.com/moise744</a>
+                </div>
+                
+                <div class="contact-item fade-in stagger-1">
+                    <h3>💼 LinkedIn</h3>
+                    <a href="https://www.linkedin.com/in/habimana-moise" target="_blank">linkedin.com/in/habimana-moise</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Habimana Moise. Built with passion for technology and innovation. AWS DeepRacer Champion | Python Developer | ML Engineer</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(15, 23, 42, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+
+        // Dynamic typing effect for hero subtitle
+        const subtitle = document.querySelector('.hero .subtitle');
+        const roles = [
+            'Python Developer & ML Engineer',
+            'AWS DeepRacer Champion 🏆',
+            'Backend API Developer',
+            'AWS Cloud Enthusiast',
+            'Financial Data Analyst',
+            'Reinforcement Learning Expert',
+            'Problem Solver & Innovator'
+        ];
+        
+        let currentRole = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeRole() {
+            const current = roles[currentRole];
+            
+            if (isDeleting) {
+                subtitle.textContent = current.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                subtitle.textContent = current.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === current.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                currentRole = (currentRole + 1) % roles.length;
+            }
+
+            setTimeout(typeRole, typeSpeed);
+        }
+
+        // Start typing effect after page load
+        setTimeout(typeRole, 2000);
+
+        // Enhanced hover effects for achievement cards
+        const achievementCards = document.querySelectorAll('.achievement-card');
+        achievementCards.forEach((card, index) => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-8px) scale(1.02)';
+                card.style.boxShadow = '0 25px 50px rgba(100, 255, 218, 0.2)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+                card.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+            });
+        });
+
+        // Project card hover effects
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Particle effect for hero section
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = '100%';
+            document.querySelector('.hero').appendChild(particle);
+            
+            setTimeout(() => {
+                if (particle.parentNode) {
+                    particle.remove();
+                }
+            }, 4000);
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 800);
+
+        // Enhanced scroll effects with parallax
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroContent = document.querySelector('.hero-content');
+            
+            // Subtle parallax effect
+            if (heroContent) {
+                heroContent.style.transform = `translateY(${scrolled * 0.1}px)`;
+            }
+        });
+
+        // Page load animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Achievement counter animation
+        const animateCounters = () => {
+            const counters = document.querySelectorAll('.achievement-card');
+            counters.forEach((counter, index) => {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            setTimeout(() => {
+                                entry.target.style.transform = 'translateY(0)';
+                                entry.target.style.opacity = '1';
+                            }, index * 100);
+                        }
+                    });
+                });
+                observer.observe(counter);
+            });
+        };
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', () => {
+            animateCounters();
+            
+            // Add subtle glow effect to achievement badges
+            const badges = document.querySelectorAll('.achievement-badge-img');
+            badges.forEach(badge => {
+                badge.addEventListener('mouseenter', () => {
+                    badge.style.boxShadow = '0 0 30px rgba(100, 255, 218, 0.6)';
+                });
+                
+                badge.addEventListener('mouseleave', () => {
+                    badge.style.boxShadow = '0 5px 15px rgba(100, 255, 218, 0.3)';
+                });
+            });
+        });
+
+        // Smooth reveal for sections
+        const revealSections = () => {
+            const sections = document.querySelectorAll('.section');
+            const windowHeight = window.innerHeight;
+            
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const sectionVisible = 150;
+                
+                if (sectionTop < windowHeight - sectionVisible) {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealSections);
+
+        // Enhanced document download tracking
+        document.querySelectorAll('.btn-download').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // Add download animation
+                btn.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    btn.style.transform = 'scale(1)';
+                }, 150);
+                
+                // You can add analytics tracking here if needed
+                console.log('Document downloaded:', e.target.getAttribute('href'));
+            });
+        });
+    </script>
+</body>
+</html>
