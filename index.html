@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Habimana Moise — Computer Vision & Machine Learning Engineer</title>
+  <meta name="description" content="Portfolio of Habimana Moise, Computer Vision & Machine Learning Engineer specializing in industrial visual inspection, defect detection, segmentation, and real-time tracking.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span>HABIMANA MOISE</span>
+      <span class="brand-badge">CV / ML ENGINEER</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#specialization">Specialization</a></li>
+      <li><a href="#experience">Experience & QA</a></li>
+      <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-tagline">
+      <span class="status-dot"></span>
+      <span>Available for Computer Vision Engineering Roles</span>
+    </div>
+    <h1>
+      Engineering <span class="gradient-text">Visual Intelligence</span> for Industrial Automation & Edge Systems.
+    </h1>
+    <p class="hero-subtitle">
+      Computer Vision & Machine Learning Engineer focused on industrial visual inspection, sub-pixel defect segmentation, real-time conveyor object tracking, and deployable deep learning systems. Built with PyTorch, OpenCV, and modern vision architectures.
+    </p>
+
+    <!-- Metrics Bar -->
+    <div class="hero-metrics">
+      <div class="metric-card">
+        <div class="metric-value">5</div>
+        <div class="metric-label">Flagship CV Systems</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value" id="total-tests-passed">117</div>
+        <div class="metric-label">Automated Unit Tests</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">2,200+</div>
+        <div class="metric-label">Tracking FPS Throughput</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">&lt; 0.5 ms</div>
+        <div class="metric-label">Track State Latency</div>
+      </div>
+    </div>
+
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">
+        Explore Flagship Projects <span>↓</span>
+      </a>
+      <a href="https://github.com/moise744" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+        GitHub Profile <span>↗</span>
+      </a>
+      <a href="https://www.linkedin.com/in/habimana-moise" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+        LinkedIn <span>↗</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Featured Projects -->
+  <section id="projects" class="section">
+    <div class="section-header">
+      <div class="section-tag">// PORTFOLIO ARTIFACTS</div>
+      <h2 class="section-title">Flagship Computer Vision Projects</h2>
+      <p class="section-desc">
+        End-to-end vision systems designed with clean architecture, reproducible training pipelines, and interactive deployment dashboards.
+      </p>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- PROJECT 1: DEFECTLENS AI -->
+      <article class="project-card">
+        <div class="project-content">
+          <div>
+            <div class="project-badge-row">
+              <span class="badge primary">Industrial Inspection</span>
+              <span class="badge">PyTorch</span>
+              <span class="badge">PatchCore</span>
+              <span class="badge">MVTec AD</span>
+            </div>
+            <h3 class="project-title">DefectLens AI</h3>
+            <p class="project-tagline">Industrial Visual Inspection & Anomaly Detection System</p>
+            <p class="project-desc">
+              End-to-end quality inspection system built for manufacturing lines. Identifies surface scratches, cracks, and structural defects on industrial components using deep residual representations and memory-bank anomaly detection.
+            </p>
+            <ul class="project-highlights">
+              <li>Dual-engine architecture: Supervised classification + PatchCore unsupervised anomaly localization</li>
+              <li>Trained on MVTec AD industrial benchmark categories</li>
+              <li>Generates pixel-level anomaly heatmaps without needing negative defect samples</li>
+              <li>Interactive Streamlit inspection cockpit with sub-25ms inference latency</li>
+            </ul>
+          </div>
+          <div class="project-footer">
+            <span class="badge">36 Tests Passing</span>
+            <div class="project-links">
+              <a href="https://github.com/moise744/defectlens-ai" class="project-link" target="_blank" rel="noopener noreferrer">Source Code ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-preview">
+          <div class="hud-panel">
+            <div class="hud-header">
+              <span>INSPECTION HUD // DEFECTLENS</span>
+              <span>LIVE</span>
+            </div>
+            <div class="hud-row"><span>Target Component:</span><span>Industrial Metal Part</span></div>
+            <div class="hud-row"><span>Inspection Model:</span><span>ResNet18 + PatchCore</span></div>
+            <div class="hud-row"><span>Anomaly Score:</span><span>0.012 (Nominal)</span></div>
+            <div class="hud-row"><span>Verdict:</span><span class="hud-tag-pass">PASS — ZERO DEFECT</span></div>
+            <div class="hud-row"><span>Latency:</span><span>21.4 ms (CPU)</span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROJECT 2: LINECOUNT AI -->
+      <article class="project-card">
+        <div class="project-content">
+          <div>
+            <div class="project-badge-row">
+              <span class="badge primary">Real-Time Video</span>
+              <span class="badge">YOLO</span>
+              <span class="badge">ByteTrack</span>
+              <span class="badge">Kalman Filtering</span>
+            </div>
+            <h3 class="project-title">LineCount AI</h3>
+            <p class="project-tagline">Real-Time Conveyor Tracking & Bidirectional Counting</p>
+            <p class="project-desc">
+              High-throughput industrial vision system that tracks and counts products moving along automated conveyor belts. Features robust occlusion handling, identity persistence, and virtual boundary crossing detection.
+            </p>
+            <ul class="project-highlights">
+              <li>ByteTrack multi-object tracking association with 8-state Kalman filters</li>
+              <li>Double-crossing prevention with directional trajectory vector validation</li>
+              <li>Benchmarked at <strong>2,238 FPS</strong> tracker throughput (0.436 ms per frame)</li>
+              <li>Real-time production throughput monitoring and unit-per-minute metrics</li>
+            </ul>
+          </div>
+          <div class="project-footer">
+            <span class="badge">13 Tests Passing</span>
+            <div class="project-links">
+              <a href="https://github.com/moise744/linecount-ai" class="project-link" target="_blank" rel="noopener noreferrer">Source Code ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-preview">
+          <div class="hud-panel">
+            <div class="hud-header">
+              <span>CONVEYOR TELEMETRY // LINECOUNT</span>
+              <span>FEED #01</span>
+            </div>
+            <div class="hud-row"><span>Active Tracks:</span><span>8 Objects</span></div>
+            <div class="hud-row"><span>Count (Line A):</span><span id="live-conveyor-count">1,842</span></div>
+            <div class="hud-row"><span>Tracker Throughput:</span><span class="hud-tag-pass">2,238 FPS</span></div>
+            <div class="hud-row"><span>Track Latency:</span><span>0.436 ms</span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROJECT 3: SURFACEGUARD -->
+      <article class="project-card">
+        <div class="project-content">
+          <div>
+            <div class="project-badge-row">
+              <span class="badge primary">Sub-Pixel Segmentation</span>
+              <span class="badge">U-Net</span>
+              <span class="badge">DeepLabV3+</span>
+              <span class="badge">ASPP</span>
+            </div>
+            <h3 class="project-title">SurfaceGuard</h3>
+            <p class="project-tagline">Sub-Pixel Industrial Defect Segmentation System</p>
+            <p class="project-desc">
+              Precision pixel-level segmentation pipeline designed to isolate micro-fractures, pitting, and irregular surface anomalies on manufactured materials where bounding boxes are insufficient.
+            </p>
+            <ul class="project-highlights">
+              <li>Dual segmentation backbones: Custom U-Net with skip connections and DeepLabV3+ with ASPP</li>
+              <li>Compound BCE + Soft Dice Loss for handling extreme foreground-background class imbalance</li>
+              <li>Automated connected-component failure analysis and area metric extraction</li>
+              <li>Synchronous spatial transform pipeline for paired image and mask augmentations</li>
+            </ul>
+          </div>
+          <div class="project-footer">
+            <span class="badge">17 Tests Passing</span>
+            <div class="project-links">
+              <a href="https://github.com/moise744/surfaceguard" class="project-link" target="_blank" rel="noopener noreferrer">Source Code ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-preview">
+          <div class="hud-panel">
+            <div class="hud-header">
+              <span>SEGMENTATION ENGINE // SURFACEGUARD</span>
+              <span>INSPECT</span>
+            </div>
+            <div class="hud-row"><span>Architecture:</span><span>DeepLabV3+ (ASPP)</span></div>
+            <div class="hud-row"><span>Loss Function:</span><span>BCE + Soft Dice</span></div>
+            <div class="hud-row"><span>Defect Regions:</span><span>2 Micro-fractures</span></div>
+            <div class="hud-row"><span>Defect Area:</span><span>1.42% of Surface</span></div>
+            <div class="hud-row"><span>Mask Confidence:</span><span class="hud-tag-pass">98.2%</span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROJECT 4: AGROSCAN AI -->
+      <article class="project-card">
+        <div class="project-content">
+          <div>
+            <div class="project-badge-row">
+              <span class="badge primary">Explainable AI</span>
+              <span class="badge">ResNet-18</span>
+              <span class="badge">Grad-CAM</span>
+              <span class="badge">PlantVillage</span>
+            </div>
+            <h3 class="project-title">AgroScan AI</h3>
+            <p class="project-tagline">Agricultural Disease Diagnosis with Grad-CAM Saliency</p>
+            <p class="project-desc">
+              Deep learning classification engine categorizing crop diseases across 38 distinct classes and 14 agricultural cultivars, coupled with Gradient-weighted Class Activation Mapping (Grad-CAM) to explain predictions.
+            </p>
+            <ul class="project-highlights">
+              <li>Comprehensive 38-class diagnosis covering tomato, maize, potato, apple, and bell pepper crops</li>
+              <li>Backpropagation hook pipeline computing activation gradients directly from the final conv layer</li>
+              <li>Transparent visual explanations eliminating black-box opacity for agronomists</li>
+              <li>Top-K confidence calibration and automated metric computation</li>
+            </ul>
+          </div>
+          <div class="project-footer">
+            <span class="badge">10 Tests Passing</span>
+            <div class="project-links">
+              <a href="https://github.com/moise744/agroscan-ai" class="project-link" target="_blank" rel="noopener noreferrer">Source Code ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-preview">
+          <div class="hud-panel">
+            <div class="hud-header">
+              <span>DIAGNOSTIC PIPELINE // AGROSCAN</span>
+              <span>ACTIVE</span>
+            </div>
+            <div class="hud-row"><span>Crop Cultivar:</span><span>Tomato (Solanum lycopersicum)</span></div>
+            <div class="hud-row"><span>Diagnosis:</span><span class="hud-tag-pass">Early Blight</span></div>
+            <div class="hud-row"><span>Confidence:</span><span>97.8%</span></div>
+            <div class="hud-row"><span>Grad-CAM Saliency:</span><span>Centred on leaf lesions</span></div>
+            <div class="hud-row"><span>Top-5 Check:</span><span>Verified (Rank 1)</span></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- PROJECT 5: PARTVERIFY AI -->
+      <article class="project-card">
+        <div class="project-content">
+          <div>
+            <div class="project-badge-row">
+              <span class="badge primary">Assembly Verification</span>
+              <span class="badge">YOLO</span>
+              <span class="badge">Rule Engine</span>
+              <span class="badge">Spatial Zones</span>
+            </div>
+            <h3 class="project-title">PartVerify AI</h3>
+            <p class="project-tagline">Automated Manufacturing Assembly & Configuration Verification</p>
+            <p class="project-desc">
+              Robotic quality verification system that validates assembled mechanical and electronic products against YAML specifications. Detects missing parts, incorrect quantities, and misplaced components.
+            </p>
+            <ul class="project-highlights">
+              <li>Declarative YAML rule engine supporting min/max counts, required parts, and tolerance limits</li>
+              <li>Normalized spatial zone analyzer checking geometric placement (center, quadrant, edge)</li>
+              <li>Automated generation of structured audit trails in JSON and printable HTML inspection certificates</li>
+              <li>Deterministic mock detector fallback for continuous offline integration testing</li>
+            </ul>
+          </div>
+          <div class="project-footer">
+            <span class="badge">41 Tests Passing</span>
+            <div class="project-links">
+              <a href="https://github.com/moise744/partverify-ai" class="project-link" target="_blank" rel="noopener noreferrer">Source Code ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-preview">
+          <div class="hud-panel">
+            <div class="hud-header">
+              <span>ASSEMBLY AUDIT // PARTVERIFY</span>
+              <span>VERIFY</span>
+            </div>
+            <div class="hud-row"><span>Specification:</span><span>Standard Bolt Assembly</span></div>
+            <div class="hud-row"><span>Bolt Detected:</span><span>1 / 1 (Center Zone)</span></div>
+            <div class="hud-row"><span>Washers Detected:</span><span>1 / 1 (Normal)</span></div>
+            <div class="hud-row"><span>Nut Detected:</span><span>1 / 1 (Locked)</span></div>
+            <div class="hud-row"><span>Inspection Verdict:</span><span class="hud-tag-pass">PASS — ZERO MISSING</span></div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Technical Specialization -->
+  <section id="specialization" class="section">
+    <div class="section-header">
+      <div class="section-tag">// COMPETENCIES & TOOLKIT</div>
+      <h2 class="section-title">Technical Specialization</h2>
+      <p class="section-desc">
+        Rigorous engineering foundations across computer vision, deep learning pipelines, and production deployment.
+      </p>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">👁️</div>
+        <h3>Computer Vision & Detection</h3>
+        <p class="project-desc">Object detection, multi-class segmentation, spatial zone analysis, and real-time tracking.</p>
+        <div class="skill-list">
+          <span class="skill-tag">Ultralytics YOLO</span>
+          <span class="skill-tag">OpenCV 5</span>
+          <span class="skill-tag">ByteTrack</span>
+          <span class="skill-tag">Kalman Filtering</span>
+          <span class="skill-tag">Hungarian Algorithm</span>
+          <span class="skill-tag">MVTec AD</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">🧠</div>
+        <h3>Deep Learning & Architectures</h3>
+        <p class="project-desc">Neural network design, fine-tuning, loss engineering, and activation explainability.</p>
+        <div class="skill-list">
+          <span class="skill-tag">PyTorch</span>
+          <span class="skill-tag">Torchvision</span>
+          <span class="skill-tag">U-Net</span>
+          <span class="skill-tag">DeepLabV3+ (ASPP)</span>
+          <span class="skill-tag">ResNet-18/50</span>
+          <span class="skill-tag">Grad-CAM</span>
+          <span class="skill-tag">Soft Dice Loss</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">📐</div>
+        <h3>Data Annotation & QA</h3>
+        <p class="project-desc">Hands-on experience building, labeling, and QAing mission-critical computer vision training sets.</p>
+        <div class="skill-list">
+          <span class="skill-tag">Bounding Box QA</span>
+          <span class="skill-tag">Polygon Segmentation</span>
+          <span class="skill-tag">Keypoint Annotation</span>
+          <span class="skill-tag">Class Distribution QA</span>
+          <span class="skill-tag">CVAT / Label Studio</span>
+          <span class="skill-tag">Error Analysis</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">⚙️</div>
+        <h3>Industrial AI & Deployment</h3>
+        <p class="project-desc">Building deployable, low-latency visual inspection apps with automated CI/CD validation.</p>
+        <div class="skill-list">
+          <span class="skill-tag">Streamlit</span>
+          <span class="skill-tag">FastAPI</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">GitHub Actions CI</span>
+          <span class="skill-tag">Pytest (117+ tests)</span>
+          <span class="skill-tag">Latency Benchmarking</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industry Experience & Annotation QA -->
+  <section id="experience" class="section">
+    <div class="section-header">
+      <div class="section-tag">// APPLIED EXPERIENCE</div>
+      <h2 class="section-title">Industry Background & Annotation QA</h2>
+      <p class="section-desc">
+        Real-world experience in computer vision data preparation, annotation quality assurance, and engineering workflows.
+      </p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-role">Computer Vision Data Annotation & QA Specialist</div>
+        <div class="timeline-company">Renew Capital & Ready to Bloom</div>
+        <div class="timeline-desc">
+          Conducted hands-on dataset curation, high-precision image and video annotation, and rigorous quality assurance for computer vision training pipelines. Annotated bounding boxes, tight polygon segmentation boundaries, and keypoint topologies. Evaluated annotator agreement, identified edge-case annotation drift, and ensured high ground-truth fidelity for downstream model convergence.
+        </div>
+        <div class="skill-list">
+          <span class="skill-tag">Annotation QA</span>
+          <span class="skill-tag">Polygon Masks</span>
+          <span class="skill-tag">Keypoints</span>
+          <span class="skill-tag">Dataset Verification</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-role">Industrial AI & Quality Inspection Focus</div>
+        <div class="timeline-company">Manufacturing & Quality Control Engineering</div>
+        <div class="timeline-desc">
+          Specializing in visual quality inspection architectures aligned with zero-defect manufacturing standards. Designing automated defect localization, conveyor tracking, and rule-based assembly verification systems built for high throughput and sub-millisecond edge tracking.
+        </div>
+        <div class="skill-list">
+          <span class="skill-tag">Zero-Defect Inspection</span>
+          <span class="skill-tag">High-Throughput Tracking</span>
+          <span class="skill-tag">Geometric Validation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer / Contact -->
+  <footer id="contact" class="footer">
+    <div class="footer-container">
+      <h2>Let's Build Robust Computer Vision Systems</h2>
+      <p>
+        I am actively seeking Computer Vision & Machine Learning Engineer opportunities, with strong enthusiasm for industrial quality inspection, manufacturing automation, and deployable edge AI.
+      </p>
+      <div class="footer-socials">
+        <a href="mailto:habimanamoise77@gmail.com" class="footer-social-link">
+          📧 habimanamoise77@gmail.com
+        </a>
+        <a href="https://github.com/moise744" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+          🐙 GitHub (@moise744)
+        </a>
+        <a href="https://www.linkedin.com/in/habimana-moise" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+          💼 LinkedIn
+        </a>
+      </div>
+      <div class="footer-copy">
+        © 2026 Habimana Moise. Designed for elite Computer Vision & Industrial AI engineering.
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
